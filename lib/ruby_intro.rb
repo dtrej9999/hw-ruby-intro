@@ -58,8 +58,7 @@ def hello(name)
 end
 
 def starts_with_consonant?(s)
-  ans = /\A[0-1]+\z/.match?(s)
-  puts ans
+  ans = /\A[a-zA-Z&&[^aeiouAEIOU]]/.match?(s)
   ans
 end
 
@@ -80,3 +79,4 @@ class BookInStock
 # YOUR CODE HERE
 end
 
+puts starts_with_consonant?("v")
