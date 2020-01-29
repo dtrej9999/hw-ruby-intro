@@ -58,13 +58,20 @@ def hello(name)
 end
 
 def starts_with_consonant?(s)
-  ans = /\A[^aeiouAEIOU]/.match?(s)
+  ans = /\A[0-1]+\z/.match?(s)
   puts ans
   ans
 end
 
-def binary_multiple_of_4? s
-  # YOUR CODE HERE
+def binary_multiple_of_4?(s)
+  ans = false
+  if /^[01]+$/.match?(s)
+    digit = s.to_i(2)
+    if digit % 4 == 0
+      ans = true
+    end
+  end
+  ans
 end
 
 # Part 3
@@ -72,3 +79,4 @@ end
 class BookInStock
 # YOUR CODE HERE
 end
+
