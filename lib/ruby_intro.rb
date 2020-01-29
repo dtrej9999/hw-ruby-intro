@@ -76,7 +76,18 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  def initialize(isbn = "default", price = 0.01)
+    if isbn.length == 0
+      raise "ISBN argument is empty (Argument Error)"
+    elsif price <= 0
+      raise "Price argument is less than or equal to 0.00 (Argument Error)"
+    end
+    @isbn = isbn
+    @price = price
+  end
+  
+  
+  
 end
 
 puts starts_with_consonant?("v")
