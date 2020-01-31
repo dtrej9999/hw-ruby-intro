@@ -58,7 +58,7 @@ def hello(name)
 end
 
 def starts_with_consonant?(s)
-  ans = /\A[a-zA-Z&&[^aeiouAEIOU]]/.match?(s)
+  ans = /^[a-z&&[^aeiou]]/i.match?(s)
   ans
 end
 
@@ -76,18 +76,23 @@ end
 # Part 3
 
 class BookInStock
-  def initialize(isbn = "default", price = 0.01)
+  def initialize(isbn, price)
     if isbn.length == 0
-      raise "ISBN argument is empty (Argument Error)"
-    elsif price <= 0
-      raise "Price argument is less than or equal to 0.00 (Argument Error)"
+      raise ArgumentError
+    end
+    if price <= 0
+      raise ArgumentError
     end
     @isbn = isbn
     @price = price
   end
   
+  attr_accessor :isbn
+  attr_accessor :price
+  
+  def price_as_string
+    ans = "$" + "%.2f" % price
+  end
   
   
 end
-
-puts starts_with_consonant?("v")
